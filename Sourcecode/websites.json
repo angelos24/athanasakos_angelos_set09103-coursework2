@@ -1,0 +1,36 @@
+[{
+  "Websites": [
+    {
+        "id": 1,
+        "Title": "Website 1",
+        "Languages": ["CSS, JS, Python "],
+        "Date": "2/10/1650",
+        "image": "/static/images/left.jpg",
+        "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+
+    },
+    {   "id": 2,
+        "Title": "Website 2",
+        "Languages": ["CSS, JS, Python "],
+        "Date": "2/10/1650",
+        "image": "/static/images/left.jpg",
+        "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+
+    },
+    {   "id": 3,
+        "Title": "Website 3",
+        "Languages": ["CSS, JS, Python "],
+        "Date": "2/10/1650",
+        "image": "/static/images/left.jpg",
+        "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+
+    },
+    {   "id": 4,
+        "Title": "Website 4",
+        "Languages": ["CSS, JS, Python "],
+        "Date": "2/10/1650",
+        "image": "/static/images/left.jpg",
+        "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+    }
+  ]
+}]

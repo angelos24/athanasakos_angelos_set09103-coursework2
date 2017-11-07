@@ -1,0 +1,35 @@
+<html>
+<head>
+<link href="{{ url_for('static', filename='vendors/bootstrap-4/css/bootstrap.min.css') }}" rel="stylesheet" />
+<link href="{{ url_for('static', filename='vendors/bootstrap-4/js/bootstrap.min.js') }}" />
+<link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+</head>
+<body>
+
+    <div id="right-nav" class="row" >
+    <div class="container">
+      <div class="row inner-left">
+        <nav class="navbar navbar-expand-lg ">
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('root') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{{ url_for('root') }}">Websites</a>
+                <a class="nav-item nav-link" href="{{ url_for('root') }}">Work projects</a>
+                <a class="nav-item nav-link" href="{{ url_for('root') }}">About me</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="right" class="middle">
+        <div class="inner-left">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

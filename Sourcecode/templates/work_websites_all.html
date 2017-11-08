@@ -1,0 +1,31 @@
+{% extends "base_left.html" %}
+{% block title %} Websties {% endblock %}
+{% block content %}
+<h1> PERSONAL WEBSITES</h1>
+<h3> Personal websites that i have done.</h3>
+<br>
+
+
+<div class="row">
+
+  {% for website in websites_all %}
+    {% for ind_website in website.Websites %}
+      {% for ind_website_all in ind_website %}
+          <div class="col">
+            <div class="card card-left">
+              <img class="card-img-top" src= "{{ind_website[ind_website_all ].image}}" alt="Card image">
+              <div class="card-img-overlay">
+                <br>
+                <h1 class="card-title">{{ind_website[ind_website_all ].Title}}</h1>
+                <a href="{{ind_website[ind_website_all ].id}}" class="btn">More information</a>
+
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+</div>
+
+
+{% endblock %}

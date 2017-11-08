@@ -26,10 +26,17 @@ def root():
 def work_index():
         return render_template('work_index.html'), 200
 
+@app.route("/work/websites/")
+def work_websites_index():
+    with open("websites.json","r") as f:
+        websites_all = json.load(f)
+        return render_template('work_websites_all.html', websites_all=websites_all), 200
+
 @app.route("/work/websites/<int:page>/")
-def work_websites_index(page):
+def work_websites_index_showcase(page):
     with open("websites.json","r") as f:
         websites = json.load(f)
+        f.close
         return render_template('work_websites.html', page=page, websites=websites), 200
 
 @app.route("/world")

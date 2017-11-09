@@ -1,19 +1,22 @@
 {% extends "base_right.html" %}
 {% block title %} Explore my world {% endblock %}
+
 {% block content %}
 <h1>Welcome to my website</h1>
 <br>
 
-<div id="inner" class="container ">
+<div id="" class="container ">
+	{% for page in pages %}
+    <div id="inner" class="content">
+      <div class="row">
+        <div class="col">
+          <a href="{{ url_for('world_index', page_id=page.id) }}"><h3>{{ page.title }}</h3></a>
+          
+        </div>
+      </div>
 
-  <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-  </p>
-  <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-  </p>
-  <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-  </p>
+    </div>
+	{% endfor %}
 </div>
-
-
 
 {% endblock %}

@@ -37,6 +37,10 @@
 
 }
 
+#inner a {
+  border: none;
+}
+
 #inner {
 
   padding: 10px;
@@ -105,8 +109,8 @@
 
 }
 
-.inner:hover {
-   box-shadow: inset 350px 0 0 0 rgba(0, 0, 0, 0.5);
+.inner:hover, #inner:hover {
+   box-shadow: inset 350px 0 0 0 rgba(0, 0, 0, 1);
   cursor: pointer;
 }
 

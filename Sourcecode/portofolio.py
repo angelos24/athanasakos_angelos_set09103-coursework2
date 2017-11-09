@@ -25,14 +25,10 @@ class Pages(db.Model):
     title = db.Column(db.String(1000))
     content = db.Column(db.BLOB)
 
-    def __init__(self, title, content):
-        self.title = title
-        self.content = content
-
     def __repr__(self):
-        return '<Pages : id=%r, title=%s, content=%s>' \
-              % (self.id, self.title, self.content)
-
+         return '<Pages : id=%r, title=%s, content=%s>' \
+     % (self.id, self.title, self.content)
+     
 @app.route("/")
 def root():
         return render_template('index.html'), 200
@@ -58,6 +54,12 @@ def work_websites_index_showcase(page):
 def world_index():
     pages = db.session.query(Pages).all()
     return render_template('world_index.html', pages=pages), 200
+
+@app.route('/world/<int:page_id>')
+def view_page(page_id):
+    page = db.session.query(Pages).filter_by(id=page_id).first()
+    return render_template('world_posts.html',
+                            id=page.id, title=page.title, content=page.content)
 
 @app.route('/world/new_post')
 def new_post():

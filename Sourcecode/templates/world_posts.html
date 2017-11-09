@@ -2,21 +2,18 @@
 {% block title %} Explore my world {% endblock %}
 
 {% block content %}
-<h1>Welcome to my website</h1>
+<h1>{{ title }} </h1>
 <br>
 
 <div id="" class="container ">
-	{% for page in pages %}
     <div id="inner" class="content">
       <div class="row">
         <div class="col">
-          <a href="{{ url_for('view_page', page_id=page.id) }}"><h3>{{ page.title }}</h3></a>
-
+					<p>{{ content|safe }}</p>
         </div>
       </div>
 
     </div>
-	{% endfor %}
 </div>
 
 {% endblock %}

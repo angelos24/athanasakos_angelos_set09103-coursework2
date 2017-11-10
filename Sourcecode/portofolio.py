@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from flask  import Flask, url_for, abort, request, render_template, json, flash, redirect, session
+from flask  import Flask, url_for, abort, request, render_template, json, flash, redirect, session, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -59,6 +59,10 @@ def work_index():
 @app.route("/work/aboutme")
 def aboutme():
         return render_template('aboutme.html'), 200
+
+@app.route('/cv/')
+def cv():
+		return send_from_directory(directory='static', filename='angel_athan.pdf', as_attachment=True)
 
 @app.route("/work/projects/")
 def work_projects_index():

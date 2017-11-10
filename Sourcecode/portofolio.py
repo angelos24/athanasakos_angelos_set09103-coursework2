@@ -1,10 +1,11 @@
 import os
+from datetime import datetime
 from flask  import Flask, url_for, abort, request, render_template, json, flash, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new.db' % os.getcwd()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new3.db' % os.getcwd()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -25,21 +26,24 @@ class Pages(db.Model):
     title = db.Column(db.String(1000))
     content = db.Column(db.BLOB)
     description = db.Column(db.String(500))
+    datetime =  db.Column(db.DateTime, default=datetime.now())
 
-    def __init__(self, title, content, description):
+    def __init__(self, title, content, description, datetime):
         self.title = title
         self.content = content
         self.description = description
+        self.datetime = datetime
 
     def __repr__(self):
-         return '<Pages : id=%r, title=%s, content=%s, description=%s>' \
-     % (self.id, self.title, self.content, self.description)
+         return '<Pages : id=%r, title=%s, content=%s, description=%s, datetime=%s>' \
+     % (self.id, self.title, self.content, self.description, self.datetime)
 
 @app.route('/new-post/', methods=['POST'])
 def save_post():
-    page = Pages(title=request.form['title'],
-                 content=request.form['content'],
-                 description=request.form['description'])
+    page = Pages(title = request.form['title'],
+                 content = request.form['content'],
+                 description = request.form['description'],
+                 datetime = datetime.now().replace(second=0, microsecond=0))
     db.session.add(page)
     db.session.commit()
     return redirect('world')
@@ -54,7 +58,7 @@ def work_index():
 
 @app.route("/work/aboutme")
 def aboutme():
-        return render_template('work_index.html'), 200
+        return render_template('aboutme.html'), 200
 
 @app.route("/work/projects/")
 def work_projects_index():
@@ -98,8 +102,6 @@ def view_page(page_id):
 @app.route('/world/new_post')
 def new_post():
     return render_template('world_newpage.html')
-
-
 
 
 if __name__ == "__main__":

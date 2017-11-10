@@ -1,13 +1,12 @@
 {% extends "base_left.html" %}
-{% block title %} Websties {% endblock %}
+{% block title %} All Websites {% endblock %}
 {% block content %}
-<h1> PERSONAL WEBSITES</h1>
-<h3> Personal websites that i have done.</h3>
+
+<h1> INDIVIDUAL WORK</h1>
+<h3> Websites that i have built for both clients and personal projects</h3>
 <br>
 
-
 <div class="row">
-
   {% for website in websites_all %}
     {% for ind_website in website.Websites %}
       {% for ind_website_all in ind_website %}

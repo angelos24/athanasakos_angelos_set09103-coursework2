@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog.db' % os.getcwd()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new.db' % os.getcwd()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -24,11 +24,26 @@ class Pages(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(1000))
     content = db.Column(db.BLOB)
+    description = db.Column(db.String(500))
+
+    def __init__(self, title, content, description):
+        self.title = title
+        self.content = content
+        self.description = description
 
     def __repr__(self):
-         return '<Pages : id=%r, title=%s, content=%s>' \
-     % (self.id, self.title, self.content)
-     
+         return '<Pages : id=%r, title=%s, content=%s, description=%s>' \
+     % (self.id, self.title, self.content, self.description)
+
+@app.route('/new-post/', methods=['POST'])
+def save_post():
+    page = Pages(title=request.form['title'],
+                 content=request.form['content'],
+                 description=request.form['description'])
+    db.session.add(page)
+    db.session.commit()
+    return redirect('world')
+
 @app.route("/")
 def root():
         return render_template('index.html'), 200
@@ -37,10 +52,29 @@ def root():
 def work_index():
         return render_template('work_index.html'), 200
 
+@app.route("/work/aboutme")
+def aboutme():
+        return render_template('work_index.html'), 200
+
+@app.route("/work/projects/")
+def work_projects_index():
+    with open("websites.json","r") as f:
+        projects_all = json.load(f)
+        f.close
+        return render_template('work_projects_all.html', projects_all=projects_all), 200
+
+@app.route("/work/projects/<int:page>/")
+def work_projects_index_showcase(page):
+    with open("websites.json","r") as f:
+        projects = json.load(f)
+        f.close
+        return render_template('work_projects.html', page=page, projects=projects), 200
+
 @app.route("/work/websites/")
 def work_websites_index():
     with open("websites.json","r") as f:
         websites_all = json.load(f)
+        f.close
         return render_template('work_websites_all.html', websites_all=websites_all), 200
 
 @app.route("/work/websites/<int:page>/")
@@ -65,13 +99,6 @@ def view_page(page_id):
 def new_post():
     return render_template('world_newpage.html')
 
-@app.route('/new-post/', methods=['POST'])
-def save_post():
-    page = Pages(title=request.form['title'],
-                 content=request.form['content'])
-    db.session.add(page)
-    db.session.commit()
-    return redirect('world')
 
 
 

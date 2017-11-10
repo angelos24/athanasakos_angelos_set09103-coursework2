@@ -1,0 +1,31 @@
+{% extends "base_left.html" %}
+{% block title %} All projects {% endblock %}
+{% block content %}
+<h1> My Projects </h1>
+<h3> Projects that i have achieved</h3>
+<br>
+
+
+<div class="row">
+
+  {% for projects in projects_all %}
+    {% for ind_project in projects.Projects %}
+      {% for ind_project_all in ind_project %}
+          <div class="col">
+            <div class="card card-left">
+              <img class="card-img-top" src= "{{ind_project[ind_project_all ].image}}" alt="Card image">
+              <div class="card-img-overlay">
+                <br>
+                <h1 class="card-title">{{ind_project[ind_project_all].Title}}</h1>
+                <a href="{{ind_project[ind_project_all ].id}}" class="btn">More information</a>
+
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+</div>
+
+
+{% endblock %}

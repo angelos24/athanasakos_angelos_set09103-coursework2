@@ -1,35 +1,28 @@
 {% extends "base_left.html" %}
-{% block title %} Websties {% endblock %}
+{% block title %} Websites {% endblock %}
 {% block content %}
-<h1> Personal websites</h1>
-<h2> Personal websites that i have done.</h2>
-<br>
-
-
-<div class="row">
 
     {% for website in websites %}
       {% for ind_website in website.Websites %}
         {% set page_id = page %}
           {% set test = page|string %}
             {% if page_id == ind_website[test].id %}
-            <div class="col">
-              <div class="card card-left">
-                <img class="card-img-top" src= "{{ind_website[test].image}}" alt="Card image">
-                <div class="card-img-overlay">
-                  <h1 class="card-title">{{ ind_website[test].Title}}</h1>
-                  <p class="card-text"> </p>
-                  {% for languages in ind_website[test].Languages %}
-                  <a href="{{ind_website.id}}" class="btn">{{languages}}</a>
-                  {% endfor %}
-                </div>
-              </div>
+            <div class="col-4 float-right">
+                <img style="height:400px;width:400px;"src= "{{ind_website[test].image}}" alt="Card image">
             </div>
+                 <div style="" class="col-8 float-right back">
+                   <br>
+                     <h1 class=""> {{ind_website[test].Title}}</h1>
+                     <p class=""> {{ind_website[test].Date}} </p>
+                     <p class="">{{ind_website[test].Description}} </p>
+                     <p class="">{{ind_website[test].Description}} </p>
+                     <p class="">{{ind_website[test].Description}} </p>
+                     {% for languages in ind_website[test].Languages %}
+                     <p> {{languages}}</p>
+                     {% endfor %}
+                   </div>
           {% endif %}
         {% endfor %}
       {% endfor %}
-
-</div>
-
 
 {% endblock %}

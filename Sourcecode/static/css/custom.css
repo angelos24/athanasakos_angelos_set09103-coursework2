@@ -41,6 +41,17 @@
   border: none;
 }
 
+#inner-right {
+
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  margin: 0 auto;
+  border: 1px solid white;
+  background:rgba(0,0,0,0.5);
+
+}
+
 #inner {
 
   padding: 10px;
@@ -50,9 +61,15 @@
   margin: 0 auto;
   border: 1px solid white;
   background:rgba(0,0,0,0.5);
+}
 
+.back {
+  background:rgba(0,0,0,0.5);
+  border: 1px solid white;
 
 }
+
+
 
 #right-nav {
   position:relative;
@@ -105,7 +122,6 @@
   border: 1px solid white;
   letter-spacing: 5px;
   padding: 10px;
-
 
 }
 

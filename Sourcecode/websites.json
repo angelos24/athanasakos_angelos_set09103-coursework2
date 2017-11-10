@@ -1,37 +1,84 @@
 [{
-  "Websites": [{
+  "Websites":   [{
 
-                  "1":  {
-                            "id": 1,
-                            "Title": "Website 1",
-                            "Languages": ["CSS, JS, Python "],
-                            "Date": "2/10/1650",
-                            "image": "/static/images/left.jpg",
-                            "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-                        },
-                  "2":  {
-                            "id": 2,
-                            "Title": "Website 2",
-                            "Languages": ["CSS, JS, Python "],
-                            "Date": "2/10/1650",
-                            "image": "/static/images/left.jpg",
-                            "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-                        },
-                  "3":  {
-                            "id": 3,
-                            "Title": "Website 3",
-                            "Languages": ["CSS, JS, Python "],
-                            "Date": "2/10/1650",
-                            "image": "/static/images/left.jpg",
-                            "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-                        },
-                  "4":  {
-                            "id": 4,
-                            "Title": "Website 4",
-                            "Languages": ["CSS, JS, Python "],
-                            "Date": "2/10/1650",
-                            "image": "/static/images/left.jpg",
-                            "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
-                        }
-          }]
+                          "1":  {
+                                    "id": 1,
+                                    "Title": "Vanessa Zervogianni",
+                                    "Languages": ["CSS (Bootstrap3) , JS, PHP "],
+                                    "url": "",
+                                    "Date": "2016",
+                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "2":  {
+                                    "id": 2,
+                                    "Title": "Albanach",
+                                    "Languages": ["CSS (Boostrap4),  Python "],
+                                    "Date": "2017",
+                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "3":  {
+                                    "id": 3,
+                                    "Title": "Aathan",
+                                    "Languages": ["CSS, JS, Python "],
+                                    "Date": "2017",
+                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "4":  {
+                                    "id": 4,
+                                    "Title": "Libguides",
+                                    "url": "",
+                                    "Languages": ["CSS(), PHP"],
+                                    "Date": "2016",
+                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                }
+                    }],
+
+"Projects":         [{
+
+                          "1":  {
+                                    "id": 1,
+                                    "Title": "UoE_Docker",
+                                    "Languages": ["Docker, Apache, PHP, MySQL"],
+                                    "Date": "2016",
+                                    "gitlab": "",
+                                    "image": "/static/images/left.jpg",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "2":  {
+                                    "id": 2,
+                                    "Title": " University of Edinburgh ",
+                                    "Languages": ["PHP, Drupal7, JS "],
+                                    "Date": "2016",
+                                    "gitlab": "",
+                                    "image": "/static/images/left.jpg",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "3":  {
+                                    "id": 3,
+                                    "Title": "PHP Assignment",
+                                    "Languages": ["PHP, Bootstrap3"],
+                                    "Date": "2016",
+                                    "gitlab": "",
+                                    "image": "/static/images/left.jpg",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                },
+                          "4":  {
+                                    "id": 4,
+                                    "Title": "Website 4",
+                                    "Languages": ["CSS, JS, Python "],
+                                    "Date": "2/10/1650",
+                                    "gitlab": "",
+                                    "image": "/static/images/left.jpg",
+                                    "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
+                                }
+                  }]
+
 }]

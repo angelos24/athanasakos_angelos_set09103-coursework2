@@ -2,21 +2,31 @@
 {% block title %} Explore my world {% endblock %}
 
 {% block content %}
-<h1>Welcome to my website</h1>
+<br>
+<h1 style="text-align:center; color:white;">Welcome to my Blog</h1>
 <br>
 
 <div id="" class="container ">
-	{% for page in pages %}
-    <div id="inner" class="content">
-      <div class="row">
-        <div class="col">
-          <a href="{{ url_for('view_page', page_id=page.id) }}"><h3>{{ page.title }}</h3></a>
 
+	{% for page in pages %}
+    <div style="padding:50px;margin:20px;"  id="inner-right" class="content">
+      <div  class="row">
+        <div class="col ">
+          <a href="{{ url_for('view_page', page_id=page.id) }}"><h3>{{ page.title }}</h3></a>
+					<p>{{ page.description }}</p>
         </div>
       </div>
-
     </div>
 	{% endfor %}
+
 </div>
 
 {% endblock %}
+
+<!-- <div class="row">
+  <div id="right" class="middle">
+    <div class="inner-left">
+
+    </div>
+  </div>
+</div> -->

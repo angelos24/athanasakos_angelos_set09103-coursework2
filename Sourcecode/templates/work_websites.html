@@ -7,11 +7,11 @@
         {% set page_id = page %}
           {% set test = page|string %}
             {% if page_id == ind_website[test].id %}
+              <div  id="inner-left" class="row">
             <div class="col-4 float-right">
                 <img style="height:400px;width:400px;"src= "{{ind_website[test].image}}" alt="Card image">
             </div>
-                 <div style="" class="col-8 float-right back">
-                   <br>
+                 <div style="" class="col-8 float-right ">
                      <h1 class=""> {{ind_website[test].Title}}</h1>
                      <p class=""> {{ind_website[test].Date}} </p>
                      <p class="">{{ind_website[test].Description}} </p>
@@ -24,5 +24,6 @@
           {% endif %}
         {% endfor %}
       {% endfor %}
+    </div>
 
 {% endblock %}

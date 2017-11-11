@@ -7,22 +7,23 @@
         {% set page_id = page %}
           {% set test = page|string %}
             {% if page_id == ind_project[test].id %}
-            <div class="col-4 float-right">
-                <img style="height:400px;width:400px;"src= "{{ind_project[test].image}}" alt="Card image">
+            <div  id="inner-right" class="row">
+              <div class="col-4 float-right">
+                  <img style="height:400px;width:400px;"src= "{{ind_project[test].image}}" alt="Card image">
+              </div>
+                   <div style="" class="col-8 ">
+                       <h1 class=""> {{ind_project[test].Title}}</h1>
+                       <p class=""> {{ind_project[test].Date}} </p>
+                       <p class="">{{ind_project[test].Description}} </p>
+                       <p class="">{{ind_project[test].Description}} </p>
+                       <p class="">{{ind_project[test].Description}} </p>
+                       {% for languages in ind_project[test].Languages %}
+                       <p> {{languages}}</p>
+                       {% endfor %}
+                  </div>
             </div>
-                 <div style="" class="col-8 float-right back">
-                   <br>
-                     <h1 class=""> {{ind_project[test].Title}}</h1>
-                     <p class=""> {{ind_project[test].Date}} </p>
-                     <p class="">{{ind_project[test].Description}} </p>
-                     <p class="">{{ind_project[test].Description}} </p>
-                     <p class="">{{ind_project[test].Description}} </p>
-                     {% for languages in ind_project[test].Languages %}
-                     <p> {{languages}}</p>
-                     {% endfor %}
-                   </div>
           {% endif %}
         {% endfor %}
       {% endfor %}
-      
+
 {% endblock %}

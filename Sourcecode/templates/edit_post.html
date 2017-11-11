@@ -1,0 +1,33 @@
+{% extends "base_right.html" %}
+{% block title %} Explore my world {% endblock %}
+{% block content %}
+
+
+
+<div id="inner-right" style="text-align:center" class="container mx-auto ">
+
+  	<form action="/update-post/" method="POST">
+      <div class="row">
+        <div class="col-4">
+          <input type="hidden" name="id" value="{{ id }}"/>
+          <label for="title">Title: </label>
+          <input class="form-control" type="text" placeholder="Enter title here.." name="title"  value="{{ title }}"/>
+          <label for="description">Description: </label>
+          <input class="form-control" type="text" placeholder="Enter a description here.." name="description" value="{{ description }}"/>
+        </div>
+        <div class="col-8">
+          <label for="content"> Content </label>
+          <textarea name="content">{{ content|safe }}</textarea>
+          <br>
+          <input type="submit" class="btn btn-info" value="Submit"/>
+        </div>
+      </div>
+    </form>
+		<script>
+			CKEDITOR.replace( 'content' );
+		</script>
+</div>
+
+
+
+{% endblock %}

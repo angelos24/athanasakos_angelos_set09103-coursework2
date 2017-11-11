@@ -5,19 +5,9 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new3.db' % os.getcwd()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new.db' % os.getcwd()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
-# Custom 401
-@app.errorhandler(401)
-def http_error_handler(error):
-        return render_template('401.html', error=error), error.code
-
-# Custom 404
-@app.errorhandler(404)
-def http_error_handler(error):
-    return render_template('404.html', error=error), error.code
 
 class Pages(db.Model):
     __tablename__ = 'pages'
@@ -38,15 +28,39 @@ class Pages(db.Model):
          return '<Pages : id=%r, title=%s, content=%s, description=%s, datetime=%s>' \
      % (self.id, self.title, self.content, self.description, self.datetime)
 
-@app.route('/new-post/', methods=['POST'])
+@app.route('/new-post/', methods=['POST','GET'])
 def save_post():
-    page = Pages(title = request.form['title'],
-                 content = request.form['content'],
-                 description = request.form['description'],
-                 datetime = datetime.now().replace(second=0, microsecond=0))
-    db.session.add(page)
+    if request.method == "POST":
+        page = Pages(title = request.form['title'],
+        content = request.form['content'],
+        description = request.form['description'],
+        datetime = datetime.now().replace(second=0, microsecond=0))
+        db.session.add(page)
+        db.session.commit()
+        return redirect('world')
+
+@app.route('/delete-post/<int:post_id>')
+def delete_post(post_id):
+    db.session.query(Pages).filter_by(id=post_id).delete()
     db.session.commit()
     return redirect('world')
+
+@app.route('/edit-post/<int:post_id>')
+def edit_post(post_id):
+    post = db.session.query(Pages).filter_by(id=post_id).first()
+    return render_template('edit_post.html',
+                           id=post.id, title=post.title, content=post.content, description=post.description)
+
+@app.route('/update-post/', methods=['POST','GET'])
+def update_post():
+     if request.method == "POST":
+         post_id = request.form['id']
+         title = request.form['title']
+         content = request.form['content']
+         description = request.form['description']
+         db.session.query(Pages).filter_by(id=post_id).update({'title': title, 'content': content, 'description': description})
+         db.session.commit()
+         return redirect('/world/'+post_id)
 
 @app.route("/")
 def root():
@@ -59,10 +73,6 @@ def work_index():
 @app.route("/work/aboutme")
 def aboutme():
         return render_template('aboutme.html'), 200
-
-@app.route('/cv/')
-def cv():
-		return send_from_directory(directory='static', filename='angel_athan.pdf', as_attachment=True)
 
 @app.route("/work/projects/")
 def work_projects_index():
@@ -107,6 +117,19 @@ def view_page(page_id):
 def new_post():
     return render_template('world_newpage.html')
 
+# Custom 401
+@app.errorhandler(401)
+def http_error_handler(error):
+        return render_template('401.html', error=error), error.code
+
+# Custom 404
+@app.errorhandler(404)
+def http_error_handler(error):
+    return render_template('404.html', error=error), error.code
+
+@app.route('/cv/')
+def cv():
+		return send_from_directory(directory='static', filename='angel_athan.pdf', as_attachment=True)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)

@@ -138,11 +138,6 @@ def view_page(post_id):
 def new_post():
     return render_template('world_newpage.html'), 200
 
-# Custom 401
-@app.errorhandler(401)
-def http_error_handler(error):
-        return render_template('401.html', error=error), error.code
-
 # Custom 404
 @app.errorhandler(404)
 def http_error_handler(error):

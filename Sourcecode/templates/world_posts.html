@@ -1,31 +1,23 @@
 {% extends "base_right.html" %}
-{% block title %} Explore my world {% endblock %}
+{% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-
 
 <div id="" class="container ">
   <br>
   <br>
   <h1 style="color:white; text-align:center">{{ title }} </h1>
   <h1 style="color:white; text-align:center">{{ description }} </h1>
-
     <div id="inner-right" class="content">
-
       <div class="row">
         <div class="col">
 					<p>{{ content|safe }}</p>
-
         </div>
       </div>
       {% if  session['logged_in'] %}
       <a href="{{ url_for('delete_post', post_id=id) }}">Delete</a>
       <a href="{{ url_for('edit_post', post_id=id) }}">Edit</a>
       {% endif %}
-
     </div>
-
-
 </div>
-
 {% endblock %}

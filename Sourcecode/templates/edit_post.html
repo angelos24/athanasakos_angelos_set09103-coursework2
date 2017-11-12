@@ -1,11 +1,7 @@
 {% extends "base_right.html" %}
-{% block title %} Explore my world {% endblock %}
+{% block title %} Edit post {% endblock %}
 {% block content %}
-
-
-
 <div id="inner-right-new" style="text-align:center" class="container mx-auto ">
-
   	<form action="/update-post/" method="POST">
       <div class="row">
         <div class="col-4">
@@ -27,7 +23,4 @@
 			CKEDITOR.replace( 'content' );
 		</script>
 </div>
-
-
-
 {% endblock %}

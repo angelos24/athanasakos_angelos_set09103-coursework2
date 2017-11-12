@@ -11,12 +11,12 @@
               <div class="col-4 float-right">
                   <img style="height:400px;width:400px;"src= "{{ind_project[test].image}}" alt="Card image">
               </div>
-                   <div style="" class="col-8 ">
-                       <h1 class=""> {{ind_project[test].Title}}</h1>
-                       <p class=""> {{ind_project[test].Date}} </p>
-                       <p class="">{{ind_project[test].Description}} </p>
-                       <p class="">{{ind_project[test].Description}} </p>
-                       <p class="">{{ind_project[test].Description}} </p>
+                   <div class="col-8 ">
+                       <h1> {{ind_project[test].Title}}</h1>
+                       <p> {{ind_project[test].Date}} </p>
+                       <p>{{ind_project[test].Description}} </p>
+                       <p>{{ind_project[test].Description}} </p>
+                       <p>{{ind_project[test].Description}} </p>
                        {% for languages in ind_project[test].Languages %}
                        <p> {{languages}}</p>
                        <div class="row">
@@ -25,12 +25,12 @@
                          {% endif %}
                          {% if 'url' in ind_project[test] %}
                          <a href="{{ind_project[test].url}}">Link</a>
-                         {% endif %}                       </div>
+                         {% endif %}
+                        </div>
                        {% endfor %}
                   </div>
             </div>
           {% endif %}
         {% endfor %}
       {% endfor %}
-
 {% endblock %}

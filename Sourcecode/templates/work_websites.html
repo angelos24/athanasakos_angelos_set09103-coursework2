@@ -1,7 +1,6 @@
 {% extends "base_left.html" %}
 {% block title %} Websites {% endblock %}
 {% block content %}
-
     {% for website in websites %}
       {% for ind_website in website.Websites %}
         {% set page_id = page %}
@@ -12,10 +11,10 @@
                 <img style="height:400px;width:400px;"src= "{{ind_website[test].image}}" alt="Card image">
             </div>
                  <div class="col-8 float-right ">
-                     <h1 class=""> {{ind_website[test].Title}}</h1>
-                     <p class="">{{ind_website[test].Description}} </p>
-                     <p class="">{{ind_website[test].Description}} </p>
-                     <p class="">{{ind_website[test].Description}} </p>
+                     <h1> {{ind_website[test].Title}}</h1>
+                     <p>{{ind_website[test].Description}} </p>
+                     <p>{{ind_website[test].Description}} </p>
+                     <p>{{ind_website[test].Description}} </p>
                      {% for languages in ind_website[test].Languages %}
                      <p> {{languages}}</p>
                      <div class="row">
@@ -32,5 +31,4 @@
         {% endfor %}
       {% endfor %}
     </div>
-
 {% endblock %}

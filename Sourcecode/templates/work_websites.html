@@ -11,14 +11,21 @@
             <div class="col-4 float-right">
                 <img style="height:400px;width:400px;"src= "{{ind_website[test].image}}" alt="Card image">
             </div>
-                 <div style="" class="col-8 float-right ">
+                 <div class="col-8 float-right ">
                      <h1 class=""> {{ind_website[test].Title}}</h1>
-                     <p class=""> {{ind_website[test].Date}} </p>
                      <p class="">{{ind_website[test].Description}} </p>
                      <p class="">{{ind_website[test].Description}} </p>
                      <p class="">{{ind_website[test].Description}} </p>
                      {% for languages in ind_website[test].Languages %}
                      <p> {{languages}}</p>
+                     <div class="row">
+                       {% if 'gitlab' in ind_website[test] %}
+                         <a href="{{ind_website[test].gitlab}}">Git repo</a>
+                       {% endif %}
+                       {% if 'url' in ind_website[test] %}
+                       <a href="{{ind_website[test].url}}">Link</a>
+                       {% endif %}
+                     </div>
                      {% endfor %}
                    </div>
           {% endif %}

@@ -5,10 +5,10 @@
                                     "id": 1,
                                     "Title": "Vanessa Zervogianni",
                                     "Languages": ["CSS (Bootstrap3) , JS, PHP "],
-                                    "url": "",
                                     "Date": "2016",
-                                    "image": "/static/images/left.jpg",
-                                    "gitlab": "",
+                                    "image": "/static/images/vzervo.png",
+                                    "url": "http://www.vzervo.eu",
+                                    "gitlab": "https://gitlab.com/athanasakosangelos/vzervo",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "2":  {
@@ -16,8 +16,8 @@
                                     "Title": "Albanach",
                                     "Languages": ["CSS (Boostrap4),  Python "],
                                     "Date": "2017",
-                                    "image": "/static/images/left.jpg",
-                                    "gitlab": "",
+                                    "image": "/static/images/coming.jpg",
+                                    "gitlab": "https://github.com/angelos24/athanasakos_angelos_set09103-coursework1",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "3":  {
@@ -25,18 +25,18 @@
                                     "Title": "aathan",
                                     "Languages": ["CSS, JS, Python "],
                                     "Date": "2017",
-                                    "image": "/static/images/left.jpg",
-                                    "gitlab": "",
+                                    "url": "http://www.aathan.eu",
+                                    "image": "/static/images/aathan.png",
+                                    "gitlab": "https://github.com/angelos24/athanasakos_angelos_set09103-coursework2",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "4":  {
                                     "id": 4,
                                     "Title": "Libguides",
-                                    "url": "",
-                                    "Languages": ["CSS(), PHP"],
+                                    "Languages": ["CSS (EdGEL), PHP"],
                                     "Date": "2016",
-                                    "image": "/static/images/left.jpg",
-                                    "gitlab": "",
+                                    "url": "http://edinburgh-uk.libguides.com",
+                                    "image": "/static/images/libguides.png",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 }
                     }],
@@ -48,8 +48,8 @@
                                     "Title": "UoE_Docker",
                                     "Languages": ["Docker, Apache, PHP, MySQL"],
                                     "Date": "2016",
-                                    "gitlab": "",
-                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "https://gitlab.com/athanasakosangelos/uoe_docker",
+                                    "image": "/static/images/docker.png",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "2":  {
@@ -57,8 +57,8 @@
                                     "Title": " University of Edinburgh ",
                                     "Languages": ["PHP, Drupal7, JS "],
                                     "Date": "2016",
-                                    "gitlab": "",
-                                    "image": "/static/images/left.jpg",
+                                    "url": "http://www.ed.ac.uk", 
+                                    "image": "/static/images/uoe.jpg",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "3":  {
@@ -66,17 +66,17 @@
                                     "Title": "PHP Assignment",
                                     "Languages": ["PHP, Bootstrap3"],
                                     "Date": "2016",
-                                    "gitlab": "",
-                                    "image": "/static/images/left.jpg",
+                                    "gitlab": "https://gitlab.com/athanasakosangelos/uoe_php_assignment",
+                                    "image": "/static/images/php.jpg",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 },
                           "4":  {
                                     "id": 4,
-                                    "Title": "Website 4",
-                                    "Languages": ["CSS, JS, Python "],
-                                    "Date": "2/10/1650",
-                                    "gitlab": "",
-                                    "image": "/static/images/left.jpg",
+                                    "Title": "Editors log",
+                                    "Languages": ["Drupal7, PHP, CSS"],
+                                    "Date": "2016",
+                                    "gitlab": "https://gitlab.com/athanasakosangelos/editors_log",
+                                    "image": "/static/images/coming.jpg",
                                     "Description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed id semper risus in hendrerit. Diam maecenas sed enim ut sem viverra."
                                 }
                   }]

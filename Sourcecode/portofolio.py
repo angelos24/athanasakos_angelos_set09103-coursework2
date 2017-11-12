@@ -4,7 +4,7 @@ from flask  import Flask, url_for, abort, request, render_template, json, flash,
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-
+app.secret_key = "shhhhhhhhhhhhhhhhhh"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///%s/blog_new.db' % os.getcwd()
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -30,6 +30,8 @@ class Pages(db.Model):
 
 @app.route('/new-post/', methods=['POST','GET'])
 def save_post():
+    if not session.get('logged_in'):
+        return abort(401)
     if request.method == "POST":
         page = Pages(title = request.form['title'],
         content = request.form['content'],
@@ -37,19 +39,20 @@ def save_post():
         datetime = datetime.now().replace(second=0, microsecond=0))
         db.session.add(page)
         db.session.commit()
-        return redirect('world')
+        return redirect('world'), 303
 
 @app.route('/delete-post/<int:post_id>')
 def delete_post(post_id):
     db.session.query(Pages).filter_by(id=post_id).delete()
     db.session.commit()
-    return redirect('world')
+    return redirect('world'), 303
 
 @app.route('/edit-post/<int:post_id>')
 def edit_post(post_id):
+    if not session.get('logged_in'):
+        return abort(401)
     post = db.session.query(Pages).filter_by(id=post_id).first()
-    return render_template('edit_post.html',
-                           id=post.id, title=post.title, content=post.content, description=post.description)
+    return render_template('edit_post.html', id=post.id, title=post.title, content=post.content, description=post.description)
 
 @app.route('/update-post/', methods=['POST','GET'])
 def update_post():
@@ -60,7 +63,25 @@ def update_post():
          description = request.form['description']
          db.session.query(Pages).filter_by(id=post_id).update({'title': title, 'content': content, 'description': description})
          db.session.commit()
-         return redirect('/world/'+post_id)
+         return redirect('/world/'+post_id), 303
+
+# Login page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        if request.form['username'] != 'angelos' or request.form['password'] != 'admin':
+            flash('<div class="alert alert-danger" role="alert"> Invalid Credentials. Please try again.</div>')
+        else:
+            session['logged_in'] = True
+            flash('<div class="alert alert-success" role="alert"> <strong>Well done!</strong> You have successfully logged in!</div>')
+    return redirect('world'), 303
+
+# Logout page
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    flash('<div class="alert alert-success" role="alert"> <strong>Well done!</strong> You have successfully logged out!</div>')
+    return redirect(url_for('root')), 303
 
 @app.route("/")
 def root():
@@ -107,15 +128,15 @@ def world_index():
     pages = db.session.query(Pages).all()
     return render_template('world_index.html', pages=pages), 200
 
-@app.route('/world/<int:page_id>')
-def view_page(page_id):
-    page = db.session.query(Pages).filter_by(id=page_id).first()
+@app.route('/world/<int:post_id>')
+def view_page(post_id):
+    post = db.session.query(Pages).filter_by(id=post_id).first()
     return render_template('world_posts.html',
-                            id=page.id, title=page.title, content=page.content)
+                            id=post.id, title=post.title, content=post.content, description=post.description), 200
 
 @app.route('/world/new_post')
 def new_post():
-    return render_template('world_newpage.html')
+    return render_template('world_newpage.html'), 200
 
 # Custom 401
 @app.errorhandler(401)
@@ -129,7 +150,7 @@ def http_error_handler(error):
 
 @app.route('/cv/')
 def cv():
-		return send_from_directory(directory='static', filename='angel_athan.pdf', as_attachment=True)
+    return send_from_directory(directory='static', filename='angel_athan.pdf', as_attachment=True)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)

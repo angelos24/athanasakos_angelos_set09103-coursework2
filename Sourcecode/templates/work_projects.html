@@ -19,6 +19,13 @@
                        <p class="">{{ind_project[test].Description}} </p>
                        {% for languages in ind_project[test].Languages %}
                        <p> {{languages}}</p>
+                       <div class="row">
+                         {% if 'gitlab' in ind_project[test] %}
+                        <a href="{{ind_project[test].gitlab}}">Git repo</a>
+                         {% endif %}
+                         {% if 'url' in ind_project[test] %}
+                         <a href="{{ind_project[test].url}}">Link</a>
+                         {% endif %}                       </div>
                        {% endfor %}
                   </div>
             </div>

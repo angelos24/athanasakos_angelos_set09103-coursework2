@@ -1,0 +1,137 @@
+% #######################################
+% ########### FILL THESE IN #############
+% #######################################
+\def\mytitle{Coursework 2 Report}
+\def\mykeywords{Fill, These, In, So, google, can, find, your, report}
+\def\myauthor{Angelos Athanasakos}
+\def\contact{4008674@live.napier.ac.uk}
+\def\mymodule{Advanced Web Technologies (set09103)}
+% #######################################
+% #### YOU DON'T NEED TO TOUCH BELOW ####
+% #######################################
+\documentclass[10pt, a4paper]{article}
+\usepackage[a4paper,outer=1.5cm,inner=1.5cm,top=1.75cm,bottom=1.5cm]{geometry}
+\twocolumn
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+%colour our links, remove weird boxes
+\usepackage[colorlinks,linkcolor={black},citecolor={blue!80!black},urlcolor={blue!80!black}]{hyperref}
+%Stop indentation on new paragraphs
+\usepackage[parfill]{parskip}
+%% Arial-like font
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+%Napier logo top right
+\usepackage{watermark}
+%Lorem Ipusm dolor please don't leave any in you final report ;)
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{listings}
+%give us the Capital H that we all know and love
+\usepackage{float}
+%tone down the line spacing after section titles
+\usepackage{titlesec}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+
+\titlespacing{\subsection}{0pt}{\parskip}{-3pt}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\paragraph}{0pt}{\parskip}{\parskip}
+\newcommand{\figuremacro}[5]{
+    \begin{figure}[#1]
+        \centering
+        \includegraphics[width=#5\columnwidth]{#2}
+        \caption[#3]{\textbf{#3}#4}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\lstset{
+	escapeinside={/*@}{@*/}, language=C++,
+	basicstyle=\fontsize{8.5}{12}\selectfont,
+	numbers=left,numbersep=2pt,xleftmargin=2pt,frame=tb,
+    columns=fullflexible,showstringspaces=false,tabsize=4,
+    keepspaces=true,showtabs=false,showspaces=false,
+    backgroundcolor=\color{white}, morekeywords={inline,public,
+    class,private,protected,struct},captionpos=t,lineskip=-0.4em,
+	aboveskip=10pt, extendedchars=true, breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	keywordstyle=\color[rgb]{0,0,1},
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+\thiswatermark{\centering \put(336.5,-38.0){\includegraphics[scale=0.8]{logo}} }
+\title{\mytitle}
+\author{\myauthor\hspace{1em}\\\contact\\Edinburgh Napier University\hspace{0.5em}-\hspace{0.5em}\mymodule}
+\date{}
+\hypersetup{pdfauthor=\myauthor,pdftitle=\mytitle,pdfkeywords=\mykeywords}
+\sloppy
+% #######################################
+% ########### START FROM HERE ###########
+% #######################################
+\begin{document}
+	\maketitle
+
+    
+
+	\section{ My Introduction}
+	
+	My idea for for my second Advanced Web Technologies coursework consisted of combining a portfolio website and a personal web blog.
+	The user is welcomed to a split page giving him the option to follow either root he desires.
+	
+    More specifically it would include a portfolio page which would highlight information regarding personal websites and projects that i have done as well as an "about me" page containing a brief description of my history including a button to download my CV. 
+    
+    Finally the blog page would just be a usual personal blog. The transition between both web roots would happen seamlessly thanks to the logical structure of the website and the integrated menu footer.
+	
+
+
+	\section{Design}
+	
+    As like the first coursework, Python Flask framework gave me the necessary tools to achieve the end result by exploiting several flask functions and utilizing JSON format for organizing my data, although with a more complex structure this time. In addition, more advanced tools were used to store blog posts data. There is a module which is very popular within the Flask community to quickly structure and set up a database. That is called "Flask-SQLAlchemy" and it's main advantage is that it treats SQL as an object and no prior SQL knowledge is needed to query and filter data. 
+    
+    Using SQL Alchemy it allowed me to quickly develop a blog site with the ability to allow the user to create, delete or edit a new post entry. Using Flask sessions the feature to limit the user's access to certain pages was implemented by utilizing the same login/logout design as the first coursework. 
+    
+    Once again as it was mentioned before JSON is used to organize all the data regarding my portfolio page. For the purpose of this website and in terms of design structure, the idea behind that was used before at my previous coursework but this time appending  new data to the json was not used. instead a more complex JSON structure was used to challenge my skills by using jinja2 to render the data on the front end.
+	
+	It is worth noting that since i have implemented custom restriction rules, it would be a good idea to add custom 401's to give better feedback to the users. Equivalently the same was done for 404's errors. In reference to my previous coursework, i decided to use a more modern and informative design.
+	
+	In terms of look and feel, the Bootstrap 4 framework was used to style my two base templates which were inherited by either web root the user followed.
+	
+	\section{Enhancements}
+    
+    Some of the features that i will like to add more like improvements of the existing functionality of the web app than enhancements. For  example some them are:
+    \begin{itemize}
+      \item \textbf{User Registration system:} As it is at the moment there is not registration system and only one predefined user. Ideally there would be different level of users with the relevant rights.
+      \item \textbf{Comments:} A critical feature that exists in every blog is the ability to post comments. Unfortunately i didn't have the time to do it due to other responsibilities but i trust that its implementation is very straight forward by user Flask alchemy.
+      \item \textbf{Post tags:} Another critical feature is the ability to add tags to a post.By doing that, the user would be able to filter different posts by a tag and also it would play an important effect in SEO.
+      \item \textbf{Enquiry page:} I though it would be a good idea to add an enquiry page in my portfolio. The user would be able to enquire about a potential project using a custom form for customizing his option.
+      \item \textbf{Post filtering:} Filtering can be very useful from the users perspective of being able to filter different posts by date, most views or even add a like/dislike feature and filter the posts by popularity.
+      \item \textbf{Share feature:} A share feature would be very useful for social media and promoting my blog. I am not sure how easy to implement that but i assume an external API from the equivalent platform should be used.
+    \end{itemize}
+    
+    
+    
+	\section{Critical Evaluation}
+	
+	Several of the features that do not work or not implement well are because of lack of time and limitation in the use of additional resources. They are the following:
+	\begin{itemize}
+	    \item \textbf{JSON Data:} JSON works perfectly with organizing my data. It creates a perfect combination with Jinja2 for displaying my websites and projects using a nested data structure. The possibilities are endless and JSON has become my favourite data persistence method!
+	    \item \textbf{SQL Alchemy:} SQl alachemy for me has been a game changer. The fact that you can have a structured database up and running within a few minutes is amazing. The learning curve is small and its capabilities endless. No SQL knowledge is required although some would be welcome and the database querying and relations are very easy. Definitely would use it in the feature for other projects!
+	    \item \textbf{Design:} I am particularly happy for the design. Especially the index page and the split page solution for guiding the user to different destinations. Bootstrap 4 was a joy to learn and a sight of relief from Bootstrap 3 and also i believe the whole front end looks very modern and follows the current trends.
+	    \item \textbf{Blog:} The blog was an extra feature whose purpose was to make something different than a typical portfolio. Due to time restricting many of the features that i wanted to include are missing. There i believe, even though it has a basic functionality is not designed as it should be. On the other side i believe the inclusion of CKeditor makes the blog post much more intuitive.
+	\end{itemize}
+
+
+	
+    \section{Personal Evaluation}
+    In the second coursework i had the opportunity to explore more advanced features of Python Flask. I discovered that there are many options to achieve the same result and depending on what is the desirable outcome, the correct tool must be chosen. In my case it was a Flask Alchemy for powering my blog. That could be extended if i had the time to implement a registration system. For the exact same feature Flask-login could have been used, although i didn't have the opportunity to explore it more in depth. 
+    
+    Personally i am amazed with the capabilities of Flask and i the ability to have a website up and running within a few minutes. There are definitely challenges but there is a big community and an extensive API documentation which is very useful. i can not wait to explore more advance features of python in my upcoming honours project which will include extensive data manipulation. 
+    
+    Through this coursework i established better what i learned from the first one. JSON nested data and objects were very useful to learn as well as exploring Flask Alchemy databases. Learning about data querying and setting a schema through python code and then posting to the database through a form was very interesting. It was also exciting to learn a bit more about sessions and finally making a complex front end design using Bootstrap 4. 
+    
+    Reflecting back from my second coursework and my journey through python flask has been an eye opening experience and i trust it will be a valuable asset in my CV. 
+\end{document}
